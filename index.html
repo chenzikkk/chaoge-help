@@ -21,30 +21,30 @@
       color: #fff;
     }
 
-    /* ⭐ 整屏背景图（电脑：contain，顶部对齐） */
+    /* ⭐ 全平台统一：整张图片完整显示（contain），顶部对齐 */
     .bg {
       position: fixed;
       inset: 0;
-      background-image: url("chaoge.jpg"); /* 你的图片文件名 */
+      background-image: url("chaoge.jpg");
       background-repeat: no-repeat;
-      background-position: top center;      /* 图从顶部开始 */
-      background-size: contain;             /* 整张图完整显示 */
+      background-position: top center;
+      background-size: contain;      /* ← 关键：所有平台都完整显示图片 */
       z-index: 1;
     }
 
-    /* 顶部渐变，让文字更清楚 */
+    /* 顶部渐变，增强文字可读性 */
     .gradient-top {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 35%;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
+      height: 40%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0));
       z-index: 2;
       pointer-events: none;
     }
 
-    /* 文字区域，叠在图片上方 */
+    /* 文字区域 */
     .text-area {
       position: fixed;
       top: 22px;
@@ -92,23 +92,15 @@
       text-shadow: 0 2px 4px rgba(0,0,0,0.7);
     }
 
-    /* 📱 手机端：铺满屏幕（cover） */
+    /* ⭐ 手机端优化（但不裁图） */
     @media (max-width: 600px) {
-      body {
-        height: 100vh;
-        overflow: hidden;
-      }
-      .bg {
-        background-size: cover;  /* 手机上优先好看，稍微裁一点 */
-      }
-      .gradient-top {
-        height: 40%;
-      }
       .title { font-size: 24px; }
       .subtitle { font-size: 12px; }
       .services { font-size: 11px; }
       .note { font-size: 10px; }
+      .text-area { top: 18px; }
     }
+
   </style>
 </head>
 <body>
